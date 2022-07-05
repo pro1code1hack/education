@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import LessonVideos, LessonImages, AdditionalFiles, Lesson, Topic
+from .models import LessonVideos, LessonImages, AdditionalFiles, Lesson, Topic, Schedule
 
 admin.site.register(LessonVideos)
 admin.site.register(Topic)
+admin.site.register(Schedule)
 
 
 class LessonImagesInline(admin.TabularInline):

@@ -25,6 +25,7 @@ class Quiz(models.Model):
     difficulty = models.CharField(max_length=6, choices=(('easy', 'easy'), ('medium', 'medium'), ('hard', 'hard')))
     test_type = models.ForeignKey('QuizType', on_delete=models.CASCADE)
     teacher = models.ForeignKey('staff.Teacher', on_delete=models.CASCADE)
+
     # pass_amount = models.IntegerField(default=3)
     # the_whole_score_in_points = models.IntegerField(default=10)
 
@@ -47,3 +48,11 @@ class Answer(models.Model):
 
     def __str__(self):
         return f'{self.question} : {self.answer_body}'
+
+
+"""
+Create the model Schedule which will have the array of days and related times for specific subject and group.
+"""
+
+
+# TODO прописать данные автоматически из гугл календаря + обработать их во внешнем вьюшке

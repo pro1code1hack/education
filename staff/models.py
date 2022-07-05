@@ -6,6 +6,7 @@ from django.db import models
 # ===================================================================================================================#
 class Person(models.Model):
     name = models.CharField(max_length=100)
+    surname = models.CharField(max_length=100, default='')
     age = models.IntegerField()
     gender = models.CharField(max_length=6, choices=[('Male', 'Male'), ('Female', 'Female')], blank=True, null=True)
     university = models.ForeignKey('educational_institution.University', on_delete=models.CASCADE, blank=True,
@@ -28,7 +29,7 @@ class Teacher(Person, models.Model):
     about_experience = models.TextField()
     # publications = models.ForeignKey('Publications', on_delete=models.CASCADE, blank=True)
     faculty = models.ForeignKey('educational_institution.Faculty', on_delete=models.CASCADE)
-    education = models.TextField()
+    education = models.TextField(default='')
     is_director = models.BooleanField(default=False)
 
 

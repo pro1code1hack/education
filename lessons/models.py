@@ -81,3 +81,15 @@ class AdditionalFiles(models.Model):
                                  FileExtensionValidator(allowed_extensions=['doc', 'pptx', 'xls', 'csv'])])
     date_uploaded = models.DateTimeField(default=timezone.now)
 
+
+class Schedule(models.Model):
+    subject = models.ForeignKey('educational_institution.Subject', on_delete=models.CASCADE)
+    group = models.ForeignKey('educational_institution.Group', on_delete=models.CASCADE, blank=True, null=True)
+    day = models.CharField(max_length=10, choices=(
+        ('monday', 'Monday'), ('tuesday', 'Tuesday'), ('wednesday', 'Wednesday'), ('thursday', 'Thursday'),
+        ('friday', 'Friday'), ('saturday', 'Saturday'), ('sunday', 'Sunday')))
+    time = models.TimeField()
+    end_time = models.TimeField(blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.subject} : {self.group} : {self.day} : {self.time}'
