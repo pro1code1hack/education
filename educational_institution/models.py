@@ -1,5 +1,6 @@
 from django.db import models
-from staff.models import Teacher, Student
+from staff.models import Teacher
+# Student
 
 # ====================================================================================================================#
 class University(models.Model):
@@ -66,17 +67,17 @@ class SubjectType(models.Model):
 
 
 # ====================================================================================================================#
-class Group(models.Model):
-    name = models.CharField(max_length=100)
-    specialty = models.ForeignKey('Specialty', on_delete=models.CASCADE, blank=True, null=True)
-    subjects = models.ManyToManyField('Subject')
-    # teachers = models.ManyToManyField('staff.Teacher', blank=True, null=True) #TODO переделать потом
-    university = models.ForeignKey('University', on_delete=models.CASCADE, blank=True, null=True)
-    course = models.IntegerField(choices=[(i, i) for i in range(1, 7)], default=1, blank=True, null=True)
-
-    # students = models.ManyToManyField('Student')
-
-    def __str__(self):
-        return self.name
-
+# class Group(models.Model):
+#     name = models.CharField(max_length=100)
+#     specialty = models.ForeignKey('Specialty', on_delete=models.CASCADE, blank=True, null=True)
+#     subjects = models.ManyToManyField('Subject')
+#     # teachers = models.ManyToManyField('staff.Teacher', blank=True, null=True) #TODO переделать потом
+#     university = models.ForeignKey('University', on_delete=models.CASCADE, blank=True, null=True)
+#     course = models.IntegerField(choices=[(i, i) for i in range(1, 7)], default=1, blank=True, null=True)
+#
+#     # students = models.ManyToManyField('Student')
+#
+#     def __str__(self):
+#         return self.name
+#
 

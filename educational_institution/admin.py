@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import University, Faculty, Specialty, Subject, SubjectType, Group
+
+from journal.models import GroupStudent
+from .models import University, Faculty, Specialty, Subject, SubjectType
 
 class SubjectTypeAdmin(admin.ModelAdmin):
     list_display = ('name',)
@@ -24,7 +26,7 @@ class SubjectInline(admin.TabularInline):
 admin.site.register(University)
 admin.site.register(Faculty)
 admin.site.register(Specialty)
-admin.site.register(Group)
+admin.site.register(GroupStudent)
 admin.site.register(SubjectType, SubjectTypeAdmin)
 admin.site.register(Subject, SubjectAdmin)
 

@@ -45,7 +45,7 @@ class Lesson(models.Model):
     teacher = models.ForeignKey('staff.Teacher', on_delete=models.CASCADE)
     main_text = models.TextField()
     additional_text = models.TextField()
-    group = models.ForeignKey('educational_institution.Group', on_delete=models.CASCADE)
+    group = models.ForeignKey('journal.GroupStudent', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.topic.topic_name
@@ -84,7 +84,7 @@ class AdditionalFiles(models.Model):
 
 class Schedule(models.Model):
     subject = models.ForeignKey('educational_institution.Subject', on_delete=models.CASCADE)
-    group = models.ForeignKey('educational_institution.Group', on_delete=models.CASCADE, blank=True, null=True)
+    group = models.ForeignKey('journal.GroupStudent', on_delete=models.CASCADE, blank=True, null=True)
     day = models.CharField(max_length=10, choices=(
         ('monday', 'Monday'), ('tuesday', 'Tuesday'), ('wednesday', 'Wednesday'), ('thursday', 'Thursday'),
         ('friday', 'Friday'), ('saturday', 'Saturday'), ('sunday', 'Sunday')))

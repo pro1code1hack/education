@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'staff',
     'lessons',
     'quiz',
+    'journal',
+
 ]
 
 MIDDLEWARE = [
@@ -122,3 +124,15 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+TEACHER = 'teacher'  # это модель преподавателя
+STUDENT = 'student'  # это модель ученика
+USER_STATUS_CHOICES = [(TEACHER, 'Учитель'), (STUDENT, 'Студент')]  # варианты для выбора статуса пользователя
+SCORE_CHOICES = [
+    *[(i, str(i)) for i in range(0, 13)]
+]
+
+# варианты для выбора оценки
+GENDER_CHOICES = [('М', 'М'), ('Ж', 'Ж')]
+
+AUTH_USER_MODEL = 'staff.User'      # ПЕРЕОПДЕЛИЛИ НАШЕГО ВСТРОЕННОГО ПОЛЬЗРОВАТЕЛЯ

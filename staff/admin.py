@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from educational_institution.admin import SubjectInline
-from .models import Teacher, Student
+#from .models import Teacher, Student
 
 
 
@@ -35,5 +35,9 @@ from .models import Teacher, Student
 #     show_change_link = True
 
 
+#
+from staff.models import Teacher, Student, User
+
+admin.site.register(User)
 admin.site.register(Teacher)
 admin.site.register(Student)
