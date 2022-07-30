@@ -42,3 +42,4 @@ class ResultInline(admin.TabularInline):
 
 
 admin.site.register(Quiz)
+admin.site.register(QuizType)

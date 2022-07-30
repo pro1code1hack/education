@@ -15,11 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from quiz.views import get_all_quizes
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('quiz',  get_all_quizes, name='quiz_list'),
+
 ]
 
 urlpatterns += [
     path('', include('staff.urls')),
 ]
+
+
